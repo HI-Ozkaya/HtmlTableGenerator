@@ -10,8 +10,3 @@ JsonSerializerOptions options = new();
 options.PropertyNameCaseInsensitive = true;
 
 Movies = JsonSerializer.Deserialize<List<Movie>>(jsonMovies, options);
-
-foreach (var item in Movies)
-{
-    Console.WriteLine(item.Title);
-}
