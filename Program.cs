@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+
+string path = Path.Combine(Environment.CurrentDirectory, "movies.json");
+string jsonMovies = File.ReadAllText(path);
+
+List<Movie> Movies;
+
+JsonSerializerOptions options = new();
+options.PropertyNameCaseInsensitive = true;
+
+Movies = JsonSerializer.Deserialize<List<Movie>>(jsonMovies, options);
