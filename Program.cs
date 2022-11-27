@@ -39,7 +39,5 @@ foreach (var item in Movies)
 htmlTable += "\t</tbody>\n";
 htmlTable += "</table>";
 
-path = Path.Combine(rootPath, "sample.html");
+path = Path.Combine(rootPath, "output.html");
 File.WriteAllText(path, htmlTable);
-
-System.Console.WriteLine(htmlTable);
