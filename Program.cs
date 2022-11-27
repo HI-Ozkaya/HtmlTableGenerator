@@ -1,7 +1,8 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-string path = Path.Combine(Environment.CurrentDirectory, "movies.json");
+string rootPath = Environment.CurrentDirectory;
+string path = Path.Combine(rootPath, "movies.json");
 string jsonMovies = File.ReadAllText(path);
 
 List<Movie> Movies;
@@ -34,9 +35,11 @@ foreach (var item in Movies)
     htmlTable += "\t\t\t<td>" + item.Genre + "</td>\n";
     htmlTable += "\t\t\t<td>" + item.Duration + "</td>\n";
     htmlTable += "\t\t</tr>\n";
-    if (item.Id > 3) break;
 }
 htmlTable += "\t</tbody>\n";
 htmlTable += "</table>";
+
+path = Path.Combine(rootPath, "sample.html");
+File.WriteAllText(path, htmlTable);
 
 System.Console.WriteLine(htmlTable);
